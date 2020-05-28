@@ -1,0 +1,7 @@
+skdb_config:
+  host: 172.25.2.40
+  port: 3306
+  user: "root"
+  passwd: "root"
+  db: "skdata_0322"
+  charset: "utf8"

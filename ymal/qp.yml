@@ -1,0 +1,22 @@
+loyalty:
+  req_mothods: ["1", "2", "3", "4"]
+
+
+cdk:
+  req_mothods: ["1", "2", "3", "4"]
+  plugins: [
+    "http://service.inter.xayuli.com",
+    "http://comm.card.entity.inter.xayuli.com",
+    "http://card.entity.inter.xayuli.com",
+    "http://inputInvoiceData.card.entity.inter.xayuli.com",
+    "http://queryTransactionList.card.entity.inter.xayuli.com",
+    "http://queryInvoiceList.card.entity.inter.xayuli.com",
+    "http://queryInvoicePreview.card.entity.inter.xayuli.com",
+    "http://inputInvoiceData.card.entity.inter.xayuli.com",
+    "http://queryTransactionDetail.card.entity.inter.xayuli.com",
+    "http://requestBatchInvoice.card.entity.inter.xayuli.com",
+    "http://requestInvoice.card.entity.inter.xayuli.com",
+    "http://revokeInvoiceData.card.entity.inter.xayuli.com",
+     ]
+
+

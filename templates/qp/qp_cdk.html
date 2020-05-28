@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>qp_cdk</title>
+	</head>
+	<body>
+	    <p><a href="{{ url_for('viems.home') }}">Home</a><h3>车队卡</h3></p>
+		<div>
+			<form action="{{ url_for('qp_viems.cdk') }}" method="post" enctype="multipart/form-data">
+				<p>
+		url: <textarea id='id_url' name="req_url" style="width:800px;height:24px">{{ req_url }}</textarea>
+
+				</p>
+				<p>
+		请求方法: <textarea id='id_req_method' name="req_method" style="width:200px;height:24px">{{ req_method }}</textarea>
+				</p>
+				<p>
+		全局:<textarea id='id_Global' name="Global_data" style="width:450px;height:400px">{{ glo_date }}</textarea>
+		局部:<textarea name="request_data" style="width:600px;height:400px">{{ req_date }}</textarea>
+				</p>
+				<p>
+					<button type="submit">Sign In</button>
+				</p>
+				<p>
+					<textarea style="width:700px;height:300px" id="bbb">{{ result }}</textarea>
+				</p>
+			</form>
+		</div>
+	</body>
+</html>

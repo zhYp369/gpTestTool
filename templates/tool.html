@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <p><a href="{{ url_for('viems.home') }}">Home</a><h3>常用工具</h3></p>
+	<div>
+			<form action="" name="base64" method="post" enctype="multipart/form-data">
+				<p>
+		            <textarea name="req_text" style="width:500px;height:300px">{{ base_req_text }}</textarea>
+		            <button onclick="req_base()" name="base" value="baseENcode">base64加密</button>
+                    <button onclick="req_base()" name="base" value="baseDEcode">base64解密</button>
+		            <textarea name="res_text" style="width:500px;height:300px">{{ base_res_text }}</textarea>
+				</p>
+			</form>
+		</div>
+	<div>
+			<form action="" name="md5" method="post" enctype="multipart/form-data">
+				<p>
+		            <textarea name="req_text" style="width:500px;height:300px">{{ md5_req_text }}</textarea>
+		            <button onclick="req_md5()" name="md5" value="md5">md5加密</button>
+		            <textarea name="res_text" style="width:500px;height:300px">{{ md5_res_text }}</textarea>
+				</p>
+			</form>
+		</div>
+</body>
+</html>
+<script>
+    function req_base(){
+        // 跳转形式:
+        // document.("表单的name值").action =""
+        // document.("表单的name值").submit =""
+        document.base64.action="{{ url_for('tool_viems.base64') }}";
+        document.base64.submit();
+    }
+    function req_md5() {
+        document.md5.action = "{{ url_for('tool_viems.md5') }}";
+        document.md5.submit();
+    }
+</script>

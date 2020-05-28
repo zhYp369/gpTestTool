@@ -1,0 +1,38 @@
+Linux:
+  [
+  "1.0、sed -n '/2020-03-24 14:40:00/,/2020-03-24 14:46:00/p' old.out > new.log   按时间过滤日志导出新的日志文件",
+  "1.1、grep 关键字 -C 100 old.out  > new.log   按时间过滤日志导出新的日志文件",
+  "1.2、grep 关键字 old.out -A 100 -B 100 --color",
+  "2、lsof -i:端口  查看端口占用的进程",
+  "3、chmod +x 文件  修改执行文件权限",
+  "4、tail -f log.txt|grep 关键字   关键字查看日志",
+  "5、netstat -nap | grep 端口  查看某个进程占用的端口",
+  ]
+
+
+Sql:
+  [
+    "select * from table where 1=1 group by zd having fzzd=';",
+    "select sum(zcse) AS SE,count(1) AS CON from fpcj_invoice_zcfl zcfl LEFT JOIN fpcj_invoice invoice on zcfl.fpfm=invoice.fpfm where 1=1;",
+    "mysqldump -h10.1.126.176 -p3306 -ufpsyy  -pFpsyycs@123  yxvatqas bzsj_main --where=\"djbh in ('BX10012003300003','BX30002004040005 ');\" > /tmp/inster_bzsj_main.sql",
+  ]
+
+Hbase:
+  [
+    "1、进入hbase操作界面",
+    "2、地址：172.25.2.111   root    Admin@123",
+    "3、su - hadoop",
+    "4、hbase  shell",
+    "5、查看hbase有哪些表: list",
+    "6、查看表的结构,# 语法：describe <table>",
+    "7、添加数据,# 语法：put <table>,<rowkey>,<family:column>,<value>,<timestamp>",
+  ]
+
+
+docker:
+  [
+    "1、查看容器id： docker ps",
+    "2、进入容器： docker exec -it id /bin/bash",
+  ]
+
+

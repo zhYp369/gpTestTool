@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <p><a href="{{ url_for('viems.home') }}">Home</a><p><h3>纸电加密页面</h3></p></p>
+    <div>
+    <form action="{{ url_for('zdyt_viems.get_jm') }}" method="post" enctype="multipart/form-data">
+        <p>
+            加密字符: <textarea name="request_data" style="width:1200px;height:160px">{{ req_date }}</textarea>
+        </p>
+        <p><button type="submit">加密</button></p>
+        <p>sign:<textarea style="width:1200px;height:160px" id="bbb">{{ sign }}</textarea></p>
+        <p>aes:<textarea style="width:1200px;height:160px" id="bbb">{{ aes }}</textarea></p>
+    </form>
+    </div>
+</body>
+</html>
