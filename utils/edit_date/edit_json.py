@@ -73,6 +73,15 @@ def update_json_value(json_data, key, value):
     return json_data
 
 
+# 解析返回的json获得关键key值
+def jiexi_json(json_data, key):
+    a = key.split(".")
+    value = json_data
+    for i in a:
+        value = value[i]
+    return value
+
+
 
 
 

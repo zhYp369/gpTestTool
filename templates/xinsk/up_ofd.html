@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ofd转图片</title>
+</head>
+<body>
+    <p><a href="{{ url_for('viems.home') }}">Home</a><p></p></p>
+    <h3>ofd转图片测试</h3>
+    <h3>url请求地址：{{ qqurl }}</h3>
+    <form action="{{ url_for('xin_sk_viems.ofdtransferomg') }}" enctype='multipart/form-data' method='POST'>
+        <div>url: <textarea id='url' name="url" style="width:800px;height:24px">{{ url }}</textarea></div>
+        <div>文件：<input type="file" name="file"></div>
+        <div><input type="submit" value="上传"></div>
+    </form>
+    {% for base64 in result %}
+        <div><p><img src="data:image/jpeg;base64,{{ base64 }}" /></p></div>
+        <h3>---------------------------------------------------------------</h3>
+    {% endfor %}
+    <div><p><img src="data:image/jpeg;base64,{{ result }}" /></p></div>
+    <div><p>{{ error }}</p></div>
+</body>
+</html>
+
+
