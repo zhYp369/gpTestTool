@@ -10,6 +10,8 @@ import random
 from utils.edit_db.connect_db import OperationMysql
 from utils.edit_config.config import Config
 import os
+from utils.edit_encryption.encryption import md5_str
+import datetime
 
 
 a = [53, 54, 50, 97, 59, 53, 110, 121, 45, 99, 57, 51, 49, 45, 52, 98, 50, 56, 45, 97, 53, 101, 50, 55, 46, 19, 51, 52, 97, 50, 74, 16, 49, 56, 98, 54]
@@ -19,6 +21,7 @@ ae_key = "ABCD123dJKHger34"
 
 db_config_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "config_file", "db.yml")
 db_peizhi = Config(db_config_file).get("skdb_config")
+ams_db_config = Config(db_config_file).get("ams")
 
 
 def get_aes_message(key, value):
@@ -118,7 +121,7 @@ def sh_hztzd_dict(fpdm, fphm, shjg):
     context = {}
     hztzdbh = get_zhuan_bianma_16()
     try:
-        op_mysql = OperationMysql(db_peizhi)
+        op_mysql = OperationMysql(ams_db_config)
         if shjg == "tg":
             sql = "update dj_hzxxb_sq set xxbbh=%s, clbz=2 where lzfpdm=%s and lzfphm=%s ;" % (hztzdbh, fpdm, fphm)
         if shjg == "btg":
@@ -140,6 +143,28 @@ def sh_hztzd_dict(fpdm, fphm, shjg):
     context["hztzdbh"] = hztzdbh
     context["result"] = result
     return context
+
+
+def get_ams_ewm(dd_no):
+    context = {}
+    op_mysql = OperationMysql(ams_db_config)
+    sql = "SELECT STORE_CODE,ORDER_NO,TOTAL_PRICE,TRANSACTION_DATE FROM `order_info` WHERE ORDER_NO ='%s' ;" % dd_no
+    res = op_mysql.select(sql)[0]
+    dict_dd = res
+    STORE_CODE = dict_dd.get("STORE_CODE")
+    ORDER_NO = dict_dd.get("ORDER_NO")
+    AMT = dict_dd.get("TOTAL_PRICE")
+    TRANSACTION_DATE = datetime.datetime.strftime(dict_dd.get("TRANSACTION_DATE"), '%Y%m%d')
+    SIGN_str = "%s,%s,%s,%s,HERMESSCAN" % (STORE_CODE, ORDER_NO, AMT, TRANSACTION_DATE)
+    SIGN_md5 = md5_str(SIGN_str).upper()
+    SIGN = SIGN_md5[1:8]
+    ewm = "http://dev.fapiao.com:19080/hermes-invoice/inv.html?r=%s,%s,%s,%s,%s" % (
+    STORE_CODE, ORDER_NO, AMT, TRANSACTION_DATE, SIGN)
+    context["dd_no"] = dd_no
+    context["ewm"] = ewm
+    return context
+
+
 
 
 

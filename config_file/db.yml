@@ -5,3 +5,11 @@ skdb_config:
   passwd: "root"
   db: "skdata_0322"
   charset: "utf8"
+
+ams:
+  host: 172.25.2.14
+  port: 3306
+  user: "root"
+  passwd: "zrsf2012"
+  db: "ams"
+  charset: "utf8"
