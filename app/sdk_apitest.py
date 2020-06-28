@@ -15,6 +15,7 @@ from flask import Blueprint, request, Response
 from flask import render_template
 from page.xin_sk.editofd import ofd_zhuan_base64
 import base64
+from utils.edit_date.edit_num import get_time
 
 
 blue = Blueprint("sdk_viems", __name__)
@@ -46,10 +47,9 @@ def down_ofdfile():
         return html
     elif method == 'POST':
         ofdbase64 = request.form["ofdbase64"]
-        print(ofdbase64)
         ofd_file_path = r"/opt/var/app/data/Tooldata/test.ofd"
         # ofd_file_path = r"C:\Users\zhangyp\Desktop\ofd\test.ofd"
-        ofd_file_name = "test.ofd"
+        ofd_file_name = get_time("%Y%m%d%H%M%S")+"test.ofd"
         with open(ofd_file_path, "wb") as f:
             f.write(base64.decodebytes(ofdbase64.encode(encoding="utf-8")))
         def send_file():
