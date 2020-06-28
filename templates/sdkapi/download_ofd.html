@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ofd转图片</title>
+</head>
+<body>
+    <p><a href="{{ url_for('viems.home') }}">Home</a><p></p></p>
+    <h3>ofdbase64数据装ofd文件</h3>
+    <form action="{{ url_for('sdk_viems.down_ofdfile') }}" enctype='multipart/form-data' method='POST'>
+        <div>url: <textarea id='123' name="ofdbase64" style="width:1200px;height:1200px">{{ ofdbase64 }}</textarea></div>
+        <div><input type="submit" value="下载"></div>
+    </form>
+</body>
+</html>
+
+

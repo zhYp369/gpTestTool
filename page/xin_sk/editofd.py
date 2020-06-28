@@ -53,7 +53,6 @@ def ofd_zhuan_base64(f):
         """
     # 读取odf文件的bety数据
     base64str = f.read()
-
     # bety数据加密成base64字符串
     bs64_b = base64.b64encode(base64str)
     bs64_str = bytes.decode(bs64_b)
