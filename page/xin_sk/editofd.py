@@ -43,3 +43,19 @@ def ofdbase64_zhuan_imgbase64(f ,url):
 
     context = {"result": data_list}
     return context
+
+
+def ofd_zhuan_base64(f):
+    """
+        调接口ofdbase64的数据转图片base64的数据
+        :param ofdbase64:
+        :return:
+        """
+    # 读取odf文件的bety数据
+    base64str = f.read()
+
+    # bety数据加密成base64字符串
+    bs64_b = base64.b64encode(base64str)
+    bs64_str = bytes.decode(bs64_b)
+    context = {"result": bs64_str}
+    return context

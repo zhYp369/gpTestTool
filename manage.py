@@ -10,6 +10,7 @@ from app.tool_viems import blue as tool
 from app.command_viems import blue as command
 from app.xin_sk import blue as xin_sk_viems
 from app.ams import blue as ams
+from app.sdk_apitest import blue as sdk_api
 # import logging
 # from utils.edit_os.edit_path import *
 # from utils.edit_date.edit_num import get_time
@@ -23,6 +24,7 @@ app.register_blueprint(blueprint=tool)
 app.register_blueprint(blueprint=command)
 app.register_blueprint(blueprint=xin_sk_viems)
 app.register_blueprint(blueprint=ams)
+app.register_blueprint(blueprint=sdk_api)
 # logfilename = "catalina.%s.log" % get_time('%Y-%m-%d')
 # # project_path = os.path.dirname(os.path.abspath(__file__))
 # project_path = r'/opt/var/logs/test_tool'
