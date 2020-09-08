@@ -32,20 +32,20 @@ class OperationMysql(object):
 		param = ("aaa", int(time.time()))
 		self.conn.commit()
 		n = self.cur.execute(sql, param)
-		print (n)
+		return n
 
 	# 更新
 	def update(self, sql):
 		n = self.cur.execute(sql)
 		self.conn.commit()
-		print(n)
+		return n
 
 	# 删除
 	def delete(self, sql):
 		param = ("aaa")
 		n = self.cur.execute(sql, param)
 		self.conn.commit()
-		print(n)
+		return n
 
 	# 关闭
 	def __exit__(self):

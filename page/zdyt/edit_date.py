@@ -121,7 +121,7 @@ def sh_hztzd_dict(fpdm, fphm, shjg):
     context = {}
     hztzdbh = get_zhuan_bianma_16()
     try:
-        op_mysql = OperationMysql(ams_db_config)
+        op_mysql = OperationMysql(db_peizhi)
         if shjg == "tg":
             sql = "update dj_hzxxb_sq set xxbbh=%s, clbz=2 where lzfpdm=%s and lzfphm=%s ;" % (hztzdbh, fpdm, fphm)
         if shjg == "btg":
